@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vivo Phones - Official Store</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #4a00e0 0%, #8e2de2 100%);
+        }
+        .phone-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        .filter-btn.active {
+            background-color: #4a00e0;
+            color: white;
+        }
+        .search-input:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(74, 0, 224, 0.2);
+        }
+        .hamburger {
+            transition: all 0.3s ease;
+        }
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50">
+    <!-- Header -->
+    <header class="bg-gray-900 text-white sticky top-0 z-50 shadow-md">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex items-center">
+                <!-- Logo -->
+                <a href="#" class="mr-4">
+                    <img src="https://pngimg.com/uploads/amazon/amazon_PNG11.png" alt="Amazon" class="h-8">
+                </a>
+                
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#" class="hover:text-gray-200 transition">Home</a>
+                    <a href="#" class="hover:text-gray-200 transition">Phones</a>
+                    <a href="#" class="hover:text-gray-200 transition">Accessories</a>
+                    <a href="#" class="hover:text-gray-200 transition">Support</a>
+                    <a href="#" class="hover:text-gray-200 transition">Store Locator</a>
+                </nav>
+                
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="menu-btn" class="hamburger flex flex-col justify-center items-center">
+                        <span class="block w-6 h-0.5 bg-white my-1 transition-all"></span>
+                        <span class="block w-6 h-0.5 bg-white my-1 transition-all"></span>
+                        <span class="block w-6 h-0.5 bg-white my-1 transition-all"></span>
+                    </button>
+                </div>
+                
+                <!-- Cart and Search (Desktop) -->
+                <div class="hidden md:flex items-center space-x-4">
+                    <button class="p-2 rounded-full hover:bg-white hover:bg-opacity-10 transition">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <button class="p-2 rounded-full hover:bg-white hover:bg-opacity-10 transition relative">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">3</span>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden bg-indigo-900 mt-2 py-2 px-4 rounded-lg">
+                <div class="flex flex-col space-y-3">
+                    <a href="#" class="block py-2 hover:bg-indigo-800 px-2 rounded">Home</a>
+                    <a href="#" class="block py-2 hover:bg-indigo-800 px-2 rounded">Phones</a>
+                    <a href="#" class="block py-2 hover:bg-indigo-800 px-2 rounded">Accessories</a>
+                    <a href="#" class="block py-2 hover:bg-indigo-800 px-2 rounded">Support</a>
+                    <a href="#" class="block py-2 hover:bg-indigo-800 px-2 rounded">Store Locator</a>
+                    <div class="flex space-x-4 pt-2">
+                        <button class="p-2 rounded-full hover:bg-white hover:bg-opacity-10 transition">
+                            <i class="fas fa-search"></i>
+                        </button>
+                        <button class="p-2 rounded-full hover:bg-white hover:bg-opacity-10 transition relative">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">3</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <div class="bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="relative h-64 md:h-80 overflow-hidden">
+                <img src="https://m.media-amazon.com/images/I/61CiqVTRBEL._SX3000_.jpg" 
+                     alt="Amazon Deals" 
+                     class="w-full h-full object-cover">
+                <div class="absolute bottom-4 left-4 bg-black bg-opacity-70 text-white p-4 rounded">
+                    <h2 class="text-xl font-bold">Today's Deals</h2>
+                    <p class="text-sm">Shop now for limited-time offers</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Products Section -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-2xl md:text-3xl font-bold">Our Smartphones</h2>
+                <div class="relative w-64 hidden md:block">
+                    <input type="text" placeholder="Search phones..." class="search-input w-full border border-gray-300 rounded-full py-2 px-4 pl-10 focus:border-indigo-500">
+                    <i class="fas fa-search absolute left-3 top-3 text-gray-400"></i>
+                </div>
+            </div>
+            
+            <!-- Filters -->
+            <div class="mb-8">
+                <div class="flex flex-wrap gap-3">
+                    <button class="filter-btn px-4 py-2 rounded-full border border-gray-300 hover:bg-indigo-100 transition" data-filter="all">All</button>
+                    <button class="filter-btn px-4 py-2 rounded-full border border-gray-300 hover:bg-indigo-100 transition" data-filter="flagship">Flagship</button>
+                    <button class="filter-btn px-4 py-2 rounded-full border border-gray-300 hover:bg-indigo-100 transition" data-filter="midrange">Mid-Range</button>
+                    <button class="filter-btn px-4 py-2 rounded-full border border-gray-300 hover:bg-indigo-100 transition" data-filter="budget">Budget</button>
+                    <button class="filter-btn px-4 py-2 rounded-full border border-gray-300 hover:bg-indigo-100 transition" data-filter="gaming">Gaming</button>
+                </div>
+            </div>
+            
+            <!-- Mobile Search -->
+            <div class="relative mb-6 md:hidden">
+                <input type="text" placeholder="Search phones..." class="search-input w-full border border-gray-300 rounded-full py-2 px-4 pl-10 focus:border-indigo-500">
+                <i class="fas fa-search absolute left-3 top-3 text-gray-400"></i>
+            </div>
+            
+            <!-- Products Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="products-container">
+                <!-- Product cards will be inserted here by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-12 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl md:text-3xl font-bold text-center mb-12">Why Choose Vivo</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-sm text-center">
+                    <div class="text-indigo-600 text-4xl mb-4">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Professional Photography</h3>
+                    <p class="text-gray-600">ZEISS optics and advanced camera algorithms for stunning photos in any condition.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-sm text-center">
+                    <div class="text-indigo-600 text-4xl mb-4">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Blazing Fast Performance</h3>
+                    <p class="text-gray-600">Powered by the latest Snapdragon processors for seamless multitasking and gaming.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-sm text-center">
+                    <div class="text-indigo-600 text-4xl mb-4">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Elegant Design</h3>
+                    <p class="text-gray-600">Premium materials and innovative designs that stand out from the crowd.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4 flex items-center">
+                        <i class="fas fa-mobile-alt mr-2"></i>
+                        <span>VIVO</span>
+                    </h3>
+                    <p class="text-gray-400">Innovating for a smarter mobile experience.</p>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Products</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Smartphones</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Accessories</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Wearables</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Audio</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Support</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Contact Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">FAQs</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Warranty</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Software Update</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Newsletter</h4>
+                    <p class="text-gray-400 mb-4">Subscribe to get updates on new products and offers.</p>
+                    <div class="flex">
+                        <input type="email" placeholder="Your email" class="px-4 py-2 rounded-l-full w-full text-gray-900">
+                        <button class="bg-indigo-600 px-4 py-2 rounded-r-full hover:bg-indigo-700 transition">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2023 Vivo Communication Technology Co. Ltd. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuBtn.addEventListener('click', () => {
+            menuBtn.classList.toggle('active');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Product data
+        const products = [
+            {
+                id: 1,
+                name: "Echo Dot (4th Gen)",
+                price: "₹4,999",
+                image: "https://m.media-amazon.com/images/I/61EXU8BuGZL._SL1000_.jpg",
+                category: "electronics",
+                specs: ["Smart speaker", "Alexa built-in", "Improved sound", "Voice control"]
+            },
+            {
+                id: 2,
+                name: "Fire TV Stick",
+                price: "₹3,999",
+                image: "https://m.media-amazon.com/images/I/51TjJOTfslL._SL1000_.jpg",
+                category: "electronics",
+                specs: ["4K streaming", "Alexa Voice Remote", "HDMI plug-in", "1GB RAM"]
+            },
+            {
+                id: 3,
+                name: "Kindle Paperwhite",
+                price: "₹12,999",
+                image: "https://m.media-amazon.com/images/I/61XZQXFQeVL._SL1000_.jpg",
+                category: "electronics",
+                specs: ["6.8\" display", "Adjustable light", "Weeks of battery", "Waterproof"]
+            },
+            {
+                id: 4,
+                name: "Amazon Basics Backpack",
+                price: "₹999",
+                image: "https://m.media-amazon.com/images/I/81r9QZh+ZbL._SL1500_.jpg",
+                category: "fashion",
+                specs: ["15.6\" laptop compartment", "Multiple pockets", "Padded straps", "Durable"]
+            },
+            {
+                id: 5,
+                name: "Amazon Smart Plug",
+                price: "₹1,499",
+                image: "https://m.media-amazon.com/images/I/61WouB3QTFL._SL1500_.jpg",
+                category: "electronics",
+                specs: ["Voice control", "Remote access", "Energy monitoring", "Easy setup"]
+            },
+            {
+                id: 6,
+                name: "Amazon Basics Chair",
+                price: "₹3,499",
+                image: "https://m.media-amazon.com/images/I/71h7+4TwJ7L._SL1500_.jpg",
+                category: "home",
+                specs: ["Ergonomic", "Adjustable height", "360° swivel", "Nylon base"]
+            },
+            {
+                id: 7,
+                name: "Amazon Echo Show 5",
+                price: "₹6,999",
+                image: "https://m.media-amazon.com/images/I/71yEX4kkOtL._SL1000_.jpg",
+                category: "electronics",
+                specs: ["5.5\" display", "HD camera", "Smart home hub", "Alexa built-in"]
+            },
+            {
+                id: 8,
+                name: "AmazonBasics Microwave",
+                price: "₹8,999",
+                image: "https://m.media-amazon.com/images/I/71CPzQKTmdL._SL1500_.jpg",
+                category: "home",
+                specs: ["700W", "20L capacity", "6 power levels", "Defrost function"]
+            }
+        ];
+
+        // Render products
+        const productsContainer = document.getElementById('products-container');
+        
+        function renderProducts(filter = 'all') {
+            productsContainer.innerHTML = '';
+            
+            const filteredProducts = filter === 'all' 
+                ? products 
+                : products.filter(product => product.category === filter);
+            
+            filteredProducts.forEach(product => {
+                const productCard = document.createElement('div');
+                productCard.className = 'phone-card bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all duration-300';
+                
+                productCard.innerHTML = `
+                    <div class="p-4">
+                        <div class="h-48 flex items-center justify-center">
+                            <img src="${product.image}" alt="${product.name}" class="h-full object-contain">
+                        </div>
+                        <h3 class="text-lg font-semibold mt-4">${product.name}</h3>
+                        <div class="flex flex-wrap gap-1 my-2">
+                            ${product.specs.map(spec => 
+                                `<span class="text-xs bg-gray-100 px-2 py-1 rounded">${spec}</span>`
+                            ).join('')}
+                        </div>
+                        <div class="mt-4 flex justify-between items-center">
+                            <span class="text-xl font-bold">${product.price}</span>
+                            <button class="bg-indigo-600 text-white px-4 py-2 rounded-full text-sm hover:bg-indigo-700 transition">
+                                <i class="fas fa-shopping-cart mr-1"></i> Buy Now
+                            </button>
+                        </div>
+                    </div>
+                `;
+                
+                productsContainer.appendChild(productCard);
+            });
+        }
+        
+        // Initial render
+        renderProducts();
+        
+        // Filter buttons
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                
+                // Add active class to clicked button
+                button.classList.add('active');
+                
+                // Filter products
+                const filter = button.dataset.filter;
+                renderProducts(filter);
+            });
+        });
+        
+        // Make first filter button active by default
+        if (filterButtons.length > 0) {
+            filterButtons[0].classList.add('active');
+        }
+        
+        // Search functionality
+        const searchInput = document.querySelector('.search-input');
+        
+        searchInput.addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+            
+            productsContainer.innerHTML = '';
+            
+            const filteredProducts = products.filter(product => 
+                product.name.toLowerCase().includes(searchTerm)
+            );
+            
+            if (filteredProducts.length > 0) {
+                filteredProducts.forEach(product => {
+                    const productCard = document.createElement('div');
+                    productCard.className = 'phone-card bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all duration-300';
+                    
+                    productCard.innerHTML = `
+                        <div class="p-4">
+                            <div class="h-48 flex items-center justify-center">
+                                <img src="${product.image}" alt="${product.name}" class="h-full object-contain">
+                            </div>
+                            <h3 class="text-lg font-semibold mt-4">${product.name}</h3>
+                            <div class="flex flex-wrap gap-1 my-2">
+                                ${product.specs.map(spec => 
+                                    `<span class="text-xs bg-gray-100 px-2 py-1 rounded">${spec}</span>`
+                                ).join('')}
+                            </div>
+                            <div class="mt-4 flex justify-between items-center">
+                                <span class="text-xl font-bold">${product.price}</span>
+                                <button class="bg-indigo-600 text-white px-4 py-2 rounded-full text-sm hover:bg-indigo-700 transition">
+                                    <i class="fas fa-shopping-cart mr-1"></i> Buy Now
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                    
+                    productsContainer.appendChild(productCard);
+                });
+            } else {
+                productsContainer.innerHTML = `
+                    <div class="col-span-full text-center py-12">
+                        <i class="fas fa-search text-4xl text-gray-400 mb-4"></i>
+                        <h3 class="text-xl font-semibold">No products found</h3>
+                        <p class="text-gray-500">Try adjusting your search or filter to find what you're looking for.</p>
+                    </div>
+                `;
+            }
+        });
+    </script>
+</body>
+</html>
